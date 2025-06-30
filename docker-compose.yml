@@ -1,0 +1,20 @@
+services:
+  gun-law-quiz-tg-bot:
+    env_file:
+      - .env
+    image: "${IMAGE_NAME}"
+    container_name: "${IMAGE_REPO}"
+    restart: always
+    working_dir: /app
+    user: "${USER_UID}:${USER_GID}"
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "sh", "-c", "! grep -q ERROR /app/logs/gun_law_quiz_tg_bot.py"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

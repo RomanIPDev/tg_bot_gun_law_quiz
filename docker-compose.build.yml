@@ -1,0 +1,8 @@
+services:
+  gun-law-quiz-tg-bot:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "${IMAGE_NAME}"
