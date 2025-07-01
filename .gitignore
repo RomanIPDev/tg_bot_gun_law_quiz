@@ -7,7 +7,5 @@
 venv/
 # Кэшированные файлы Python
 __pycache__/
-# Все файлы json
-*.json
 # Все логфайлы
 *.log
